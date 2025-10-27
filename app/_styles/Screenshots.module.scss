@@ -1,0 +1,22 @@
+.screenshots {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.image {
+  position: relative;
+  aspect-ratio: 16/9;
+  border: 2px solid transparent;
+  width: 10dvw;
+  height: auto;
+
+  &:hover {
+    cursor: pointer;
+    border-color: var(--color-brand-700);
+  }
+
+  & img {
+    object-fit: cover;
+  }
+}

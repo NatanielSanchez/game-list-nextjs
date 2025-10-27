@@ -1,0 +1,12 @@
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.spinnerMini {
+  width: 2.4rem;
+  height: 2.4rem;
+  animation: spin 1.5s infinite linear;
+  color: var(--color-brand-600);
+}

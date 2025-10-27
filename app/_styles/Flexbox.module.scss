@@ -1,0 +1,13 @@
+.flexbox {
+  display: flex;
+}
+
+.horizontal {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.vertical {
+  flex-direction: column;
+  gap: 1rem;
+}

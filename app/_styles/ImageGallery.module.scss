@@ -1,0 +1,39 @@
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70dvw;
+}
+.arrowButton {
+  font-size: 3rem;
+  color: var(--color-grey-700);
+  border: none;
+  background-color: transparent;
+
+  &:not(:disabled) svg:hover {
+    color: var(--color-brand-700);
+  }
+}
+.image {
+  position: relative;
+  aspect-ratio: 16/9;
+  width: 60dvw;
+  height: auto;
+
+  & img {
+    object-fit: cover;
+  }
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+
+  color: var(--color-grey-500);
+}

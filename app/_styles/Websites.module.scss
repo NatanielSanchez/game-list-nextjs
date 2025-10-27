@@ -1,0 +1,17 @@
+.websites {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+
+.link {
+  & svg {
+    color: var(--color-grey-500);
+    font-size: 4rem;
+
+    &:hover {
+      color: var(--color-brand-700);
+    }
+  }
+}

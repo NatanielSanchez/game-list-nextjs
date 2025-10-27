@@ -1,0 +1,19 @@
+.layout {
+  display: grid;
+  grid-template-rows: 10dvh auto;
+  height: 100vh;
+}
+
+.main {
+  background-color: var(--color-grey-100);
+  overflow-y: scroll;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.container {
+  margin: 0 4dvw 4dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

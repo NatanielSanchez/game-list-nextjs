@@ -1,0 +1,36 @@
+.details {
+  display: flex;
+  gap: 2rem;
+}
+
+.cover {
+  position: relative;
+  flex-shrink: 0;
+  height: 70dvh;
+  width: calc(70dvh * 3 / 4);
+
+  & img {
+    object-fit: cover;
+  }
+}
+
+.infoGroup {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  row-gap: 1rem;
+}
+.gameInfo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+}
+.title {
+  font-size: 2.5rem;
+  font-family: "Orbitron", "Roboto", sans-serif;
+}
+.selectorBox {
+  margin-left: auto;
+}

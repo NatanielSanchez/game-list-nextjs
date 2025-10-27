@@ -1,0 +1,26 @@
+.gameCardTooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+
+  font-size: 1.5rem;
+
+  width: 25dvw;
+
+  & span {
+    text-decoration: underline;
+    font-weight: bolder;
+  }
+}
+
+.gameType {
+  color: var(--color-grey-600);
+  font-weight: bolder;
+}
+.gameSummary {
+  font-size: 1.2rem;
+
+  // prevent automatic hyphenation
+  hyphens: none;
+}

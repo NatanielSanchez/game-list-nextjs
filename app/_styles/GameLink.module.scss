@@ -1,0 +1,11 @@
+.link {
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--color-brand-500);
+  }
+  &:active {
+    text-decoration: none;
+  }
+}

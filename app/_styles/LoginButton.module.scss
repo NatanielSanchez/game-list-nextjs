@@ -1,0 +1,23 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: var(--border-radius-sm);
+  transition: all 0.2s;
+  color: var(--color-grey-700);
+
+  &:hover {
+    background-color: var(--color-grey-100);
+    box-shadow: 0 0 2px 2px var(--color-brand-800);
+  }
+
+  & svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--color-brand-600);
+  }
+}

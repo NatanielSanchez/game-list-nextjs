@@ -1,0 +1,53 @@
+.gameCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  & span {
+    font-size: 1.2rem;
+    color: var(--color-grey-500);
+  }
+
+  & a {
+    font-size: 1.3rem;
+  }
+}
+
+// for Image with wrapper div
+// .cover {
+//   position: relative;
+//   height: 30dvh;
+//   width: calc(30dvh * 3 / 4);
+//   &:hover {
+//     cursor: pointer;
+//     box-shadow: 0 0 20px var(--color-brand-500);
+//   }
+//   & img {
+//     object-fit: contain;
+//   }
+// }
+
+.cover {
+  position: relative;
+  aspect-ratio: 3/4;
+  height: 30dvh;
+  width: auto;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 20px var(--color-brand-500);
+  }
+
+  & img {
+    object-fit: cover;
+  }
+}
+
+.spans {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}

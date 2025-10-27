@@ -1,0 +1,22 @@
+.status {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 2px solid;
+  border-radius: var(--border-radius-lg);
+}
+
+.not-available {
+  color: var(--color-red-700);
+  background-color: var(--color-red-100);
+  border-color: var(--color-red-700);
+}
+.early-access {
+  color: var(--color-yellow-700);
+  background-color: var(--color-yellow-100);
+  border-color: var(--color-yellow-700);
+}
+.released {
+  color: var(--color-green-700);
+  background-color: var(--color-green-100);
+  border-color: var(--color-green-700);
+}

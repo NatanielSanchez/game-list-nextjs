@@ -1,0 +1,33 @@
+.value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  & svg {
+    color: var(--color-brand-500);
+  }
+}
+
+.Plantoplay {
+  & svg {
+    font-size: 2rem;
+    color: var(--color-indigo-700);
+  }
+}
+.Completed {
+  & svg {
+    font-size: 2rem;
+    color: green;
+  }
+}
+.Dropped {
+  & svg {
+    font-size: 2rem;
+    color: orange;
+  }
+}
+.Remove {
+  & svg {
+    font-size: 2rem;
+    color: red;
+  }
+}

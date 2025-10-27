@@ -1,0 +1,22 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.button {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: fit-content;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-grey-100);
+  &:hover {
+    box-shadow: 0 0 10px var(--color-brand-700);
+  }
+}

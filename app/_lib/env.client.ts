@@ -1,0 +1,21 @@
+const publicEnv = {
+  NEXT_PUBLIC_PAGE_SIZE: process.env.NEXT_PUBLIC_PAGE_SIZE,
+  NEXT_PUBLIC_COVER_IMG_URL: process.env.NEXT_PUBLIC_COVER_IMG_URL,
+  NEXT_PUBLIC_COVER_IMG_1080p_URL: process.env.NEXT_PUBLIC_COVER_IMG_1080p_URL,
+  NEXT_PUBLIC_SCREENSHOT_MED_URL: process.env.NEXT_PUBLIC_SCREENSHOT_MED_URL,
+  NEXT_PUBLIC_SCREENSHOT_HUGE_URL: process.env.NEXT_PUBLIC_SCREENSHOT_HUGE_URL,
+};
+
+export function getEnvVar(name: keyof typeof publicEnv) {
+  const value = publicEnv[name];
+  if (!value) throw new Error(`Missing env var: ${name}`);
+  return value;
+}
+
+export const PAGE_SIZE = Number(getEnvVar("NEXT_PUBLIC_PAGE_SIZE"));
+export const COVER_IMG_URL = getEnvVar("NEXT_PUBLIC_COVER_IMG_URL");
+export const COVER_IMG_1080p_URL = getEnvVar("NEXT_PUBLIC_COVER_IMG_1080p_URL");
+export const SCREENSHOT_MED_URL = getEnvVar("NEXT_PUBLIC_SCREENSHOT_MED_URL");
+export const SCREENSHOT_HUGE_URL = getEnvVar("NEXT_PUBLIC_SCREENSHOT_HUGE_URL");
+export const DATA_URL_PLACEHOLDER =
+  "data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjcwMCIgaGVpZ2h0PSI0NzUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMzMzIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzIyMiIgb2Zmc2V0PSI1MCUiIC8+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMzMzMiIG9mZnNldD0iNzAlIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjcwMCIgaGVpZ2h0PSI0NzUiIGZpbGw9IiMzMzMiIC8+CiAgPHJlY3QgaWQ9InIiIHdpZHRoPSI3MDAiIGhlaWdodD0iNDc1IiBmaWxsPSJ1cmwoI2cpIiAvPgogIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItNzAwIiB0bz0iNzAwIiBkdXI9IjFzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgIC8+Cjwvc3ZnPg==";

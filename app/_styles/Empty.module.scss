@@ -1,0 +1,22 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 5rem;
+}
+
+.image {
+  position: relative;
+  width: 10dvw;
+  height: 10dvh;
+  & img {
+    object-fit: contain;
+  }
+}
+
+.message {
+  font-family: var(--font-orbitron), var(--font-roboto), sans-serif;
+  font-size: 3rem;
+}

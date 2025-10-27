@@ -1,0 +1,26 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.content {
+  position: fixed;
+  border-radius: var(--border-radius-md);
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.1s ease-out forwards;
+  background-color: var(--color-grey-800);
+  // top and right are set on styles object
+}
+
+.dark {
+  background: rgb(55, 65, 81, 0.8);
+}
+
+.light {
+  background: rgb(243, 244, 246, 0.9);
+}

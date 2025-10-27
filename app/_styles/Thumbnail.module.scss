@@ -1,0 +1,30 @@
+.thumbnail {
+  position: relative;
+  aspect-ratio: 4/3;
+  width: 10dvw;
+  height: auto;
+
+  & img {
+    border: 2px solid transparent;
+    object-fit: cover;
+    &:hover {
+      cursor: pointer;
+      border-color: var(--color-brand-700);
+    }
+  }
+
+  & svg {
+    position: absolute;
+    transition: color 0.3s, background-color 0.3s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    pointer-events: none;
+    color: transparent;
+  }
+
+  & .hovered {
+    color: var(--color-brand-500);
+  }
+}
