@@ -29,9 +29,6 @@ type HoverableContextType = {
 const HoverableContext = createContext<HoverableContextType | undefined>(undefined);
 
 export function HoverableProvider({ children }: PropsWithChildren) {
-  const { theme } = useTheme();
-  const [isMounted, setIsMounted] = useState(false); // needed to avoid hydration mismatch, theme is not known on the server
-
   const [tooltip, setTooltip] = useState<TooltipState | null>(null);
   const [isHovering, setIsHovering] = useState(false);
   const currentHoverIdRef = useRef<string | null>(null);
@@ -125,12 +122,6 @@ export function HoverableProvider({ children }: PropsWithChildren) {
     };
   }, [tooltip]);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
-
   return (
     <HoverableContext.Provider value={{ showTooltip, hideTooltip }}>
       {children}
@@ -140,7 +131,7 @@ export function HoverableProvider({ children }: PropsWithChildren) {
             ref={tooltipRef}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
-            className={`${styles.hoverable} ${theme === "dark" ? styles.dark : styles.light}`}
+            className={`${styles.hoverable}`}
             style={{
               left: `${tooltip.position.x}px`,
               top: `${tooltip.position.y}px`,

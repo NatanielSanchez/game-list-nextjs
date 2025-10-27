@@ -11,15 +11,8 @@
   position: absolute;
   z-index: 999;
   border-radius: var(--border-radius-md);
+  background-color: color-mix(in srgb, var(--color-grey-200), transparent 15%);
   padding: 1.5rem;
   backdrop-filter: blur(10px);
   animation: fadeIn 0.2s ease-out forwards;
-}
-
-.dark {
-  background: rgb(55, 65, 81, 0.8);
-}
-
-.light {
-  background: rgb(243, 244, 246, 0.9);
 }

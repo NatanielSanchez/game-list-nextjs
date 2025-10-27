@@ -26,7 +26,7 @@ function UserButton({ user }: { user: NonNullable<DefaultSession["user"]> }) {
         id="userButton"
         renderItem={(handleClick) => (
           <button onClick={handleClick} className={styles.userButton}>
-            {user.image ? <img src={user.image} alt="User" /> : <HiUserCircle />}
+            {user.image ? <img src={user.image} alt="User" referrerPolicy="no-referrer" /> : <HiUserCircle />}
           </button>
         )}
       />
