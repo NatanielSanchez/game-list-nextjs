@@ -1,11 +1,9 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,

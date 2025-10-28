@@ -5,7 +5,6 @@ import styles from "@/app/_styles/rootLayout.module.scss";
 import { ThemeProvider } from "next-themes";
 import Header from "./_ui/Header";
 import { Toaster } from "react-hot-toast";
-import { QueryClient } from "@tanstack/react-query";
 import ReactQueryProvider from "./_context/ReactQueryProvider";
 
 const roboto = Roboto({
@@ -28,13 +27,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 5 * 60 * 1000, // time until data re-fetch in miliseconds
-      },
-    },
-  });
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${roboto.variable} ${orbitron.variable}`}>

@@ -5,9 +5,6 @@ import GameLink from "./GameLink";
 import { getDateFromUnix } from "../_lib/dateHelpers";
 import Status from "./Status";
 import { GameBasicInfo, isPrimaryGameType } from "../_lib/types";
-import UserListSelect from "./UserListSelect";
-import { Suspense } from "react";
-import SpinnerMini from "./SpinnerMini";
 import UserListSelectReactQuery from "./UserListSelectReactQuery";
 import { auth } from "../_lib/auth";
 
