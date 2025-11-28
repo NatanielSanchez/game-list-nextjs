@@ -303,6 +303,7 @@ export type GamesPageParams = {
   platforms?: string | string[];
   genres?: string | string[];
   themes?: string | string[];
+  release_year?: string;
   sort?: SortValues;
 };
 
@@ -312,6 +313,7 @@ export type GamesPageFilters = {
   platforms: string[];
   genres: string[];
   themes: string[];
+  releaseYear?: string;
   sort?: SortValues;
 };
 

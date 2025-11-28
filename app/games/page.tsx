@@ -18,6 +18,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Gam
     filters.page,
     filters.name ?? "",
     filters.sort ?? "",
+    filters.releaseYear ?? "",
     filters.platforms.join(","),
     filters.genres.join(","),
     filters.themes.join(","),
@@ -49,5 +50,6 @@ function normalizeSearchParams(searchParams: GamesPageParams): GamesPageFilters 
     genres: genres ? (Array.isArray(genres) ? genres : [genres]) : [],
     themes: themes ? (Array.isArray(themes) ? themes : [themes]) : [],
     sort: searchParams.sort,
+    releaseYear: searchParams.release_year,
   };
 }

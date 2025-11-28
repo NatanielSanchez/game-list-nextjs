@@ -29,12 +29,14 @@ export async function getGames({
   platforms,
   genres,
   themes,
+  releaseYear,
   sort,
 }: GamesPageFilters): Promise<{ count: number; games: GameListData[] }> {
   const nameQuery = name ? `& name ~ *"${name}"*` : "";
   const platformsQuery = platforms.length !== 0 ? `& platforms = [${platforms.join()}]` : "";
   const genresQuery = genres.length !== 0 ? `& genres = [${genres.join()}]` : "";
   const themesQuery = themes.length !== 0 ? `& themes = [${themes.join()}]` : "";
+  const releaseYearQuery = releaseYear ? getReleaseYearQuery(releaseYear) : "";
   const sortQuery = sort ? sort : "total_rating_count desc"; // sort by "popularity" by default
 
   const res = await fetch("https://api.igdb.com/v4/multiquery", {
@@ -49,6 +51,7 @@ export async function getGames({
             ${platformsQuery}
             ${genresQuery}
             ${themesQuery}
+            ${releaseYearQuery}
             ;
         };
 
@@ -62,6 +65,7 @@ export async function getGames({
             ${platformsQuery}
             ${genresQuery}
             ${themesQuery}
+            ${releaseYearQuery}
             ;
 
           limit ${PAGE_SIZE};
@@ -259,6 +263,13 @@ async function fixGameListData(apiGames: API_GameListData[]) {
   );
 
   return fixedGames;
+}
+
+function getReleaseYearQuery(releaseYear: string) {
+  if (isNaN(Number(releaseYear))) throw new Error("Invalid release year filter.");
+  return `& first_release_date >= ${Date.parse(`${releaseYear}-01-01T00:00:00Z`) / 1000} & first_release_date <= ${
+    Date.parse(`${releaseYear}-12-31T23:59:59Z`) / 1000
+  }`;
 }
 
 type GameListQueryResponse = [{ name: "gameCount"; count: number }, { name: "games"; result: API_GameListData[] }];

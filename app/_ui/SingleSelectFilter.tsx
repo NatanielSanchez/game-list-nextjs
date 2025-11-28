@@ -4,8 +4,15 @@ import { type Props as SelectProps } from "react-select";
 import { useQueryParamSync } from "../_hooks/useQueryParamSync";
 import useIsMounted from "../_hooks/useIsMounted";
 
-function SingleSelectFilter({ fieldName, options, isLoading, isSearchable, placeholder }: SingleSelectFilterProps) {
-  const { getParam, setParam } = useQueryParamSync();
+function SingleSelectFilter({
+  fieldName,
+  options,
+  isLoading,
+  isSearchable,
+  placeholder,
+  isClearable,
+}: SingleSelectFilterProps) {
+  const { getParam, setParam, deleteParam } = useQueryParamSync();
   const isMounted = useIsMounted();
 
   const pathOption = getParam(fieldName);
@@ -14,11 +21,11 @@ function SingleSelectFilter({ fieldName, options, isLoading, isSearchable, place
   // if no options (they could be getting fetched), default value is null
   if (!options) value = null;
   // else value is based on the path param, or the first option is taken as default
-  else value = pathOption ? options.find((opt) => opt.value === pathOption) : options[0];
+  else value = pathOption ? options.find((opt) => opt.value === pathOption) : isClearable ? null : options[0];
 
   function onSelect(value: SingleValue<SingleSelectOption>) {
-    if (!value) return;
-    setParam(fieldName, value.value);
+    if (!value) deleteParam(fieldName, undefined, "page");
+    else setParam(fieldName, value.value, "page");
   }
 
   if (!isMounted) return null;
@@ -31,6 +38,7 @@ function SingleSelectFilter({ fieldName, options, isLoading, isSearchable, place
       onChange={onSelect}
       isLoading={isLoading} // adds "spinner" when fetching options
       isSearchable={isSearchable}
+      isClearable={isClearable}
       captureMenuScroll={true}
       closeMenuOnSelect={true}
       styles={customSelectStyles}
@@ -40,7 +48,10 @@ function SingleSelectFilter({ fieldName, options, isLoading, isSearchable, place
 
 export default SingleSelectFilter;
 
-type SingleSelectFilterProps = Pick<SelectProps, "isLoading" | "placeholder" | "isSearchable" | "isDisabled"> & {
+type SingleSelectFilterProps = Pick<
+  SelectProps,
+  "isLoading" | "placeholder" | "isSearchable" | "isDisabled" | "isClearable"
+> & {
   fieldName: string;
   options?: SingleSelectOption[]; // optional for compatibility with fetched options
 };
@@ -53,7 +64,7 @@ export type SingleSelectOption = {
 const customSelectStyles: StylesConfig<SingleSelectOption> = {
   control: (baseStyles) => ({
     ...baseStyles,
-    minWidth: "10dvw",
+    minWidth: "fit-content",
     background: "var(--color-grey-0)",
     border: "1px solid var(--color-grey-100)",
     fontSize: "1.4rem",

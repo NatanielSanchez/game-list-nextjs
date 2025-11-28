@@ -50,9 +50,27 @@ async function GameListOperations() {
       />
       <MultiSelectFilter fieldName="genres" isSearchable={true} placeholder="Search genres" options={genreOptions} />
       <MultiSelectFilter fieldName="themes" isSearchable={true} placeholder="Search themes" options={themeOptions} />
+      <SingleSelectFilter
+        fieldName="release_year"
+        isSearchable={true}
+        isClearable={true}
+        options={getReleaseYearOptions()}
+        placeholder="Release year"
+      />
       <SingleSelectFilter fieldName="sort" isSearchable={false} options={sortOptions} />
     </Operations>
   );
 }
 
 export default GameListOperations;
+
+function getReleaseYearOptions() {
+  const currentYear = new Date(Date.now()).getFullYear();
+  const startYear = 1950; // first actual game ever was from this decade
+
+  const options: SingleSelectOption[] = [];
+  for (let index = currentYear; index >= startYear; index--) {
+    options.push({ label: index.toString(), value: index.toString() });
+  }
+  return options;
+}
